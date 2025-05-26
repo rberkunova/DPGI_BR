@@ -1,20 +1,48 @@
-﻿<Window x:Class="lab2.MainWindow"
+﻿<Window x:Class="TextEditorApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:lab2"
+        xmlns:local="clr-namespace:TextEditorApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="TextEditor" Height="450" Width="600">
 
-    <Canvas Background="Aqua">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        <Label Canvas.Top="20" Canvas.Left="20" Content="Label"/>
+        <Border Grid.Row="0" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10" Margin="5">
 
-        <TextBox Canvas.Top="40" Canvas.Left="40" Text="TextBox"/>
+            <StackPanel Orientation="Horizontal">
 
-        <Button Canvas.Top="60" Canvas.Left="60" Content="Button"/>
+                <Button ToolTip="Відкрити" >
+                    <Image Source="C:\Users\Руслана\Pictures\1.jpg" Width="40" Height="40"/>
+                </Button>
 
-    </Canvas>
+                <Button ToolTip="Стерти" >
+                    <Image Source="C:\Users\Руслана\Pictures\2.jpg" Width="40" Height="40"/>
+                </Button>
 
+                <Button ToolTip="Копіювати">
+                    <Image Source="C:\Users\Руслана\Pictures\3.jpg" Width="40" Height="40"/>
+                </Button>
+
+                <Button ToolTip="Вставити" >
+                    <Image Source="C:\Users\Руслана\Pictures\4.jpg" Width="40" Height="40"/>
+                </Button>
+
+            </StackPanel>
+        </Border>
+
+        <TextBox Grid.Row="1"
+                 Margin="5,0,5,5"
+                 AcceptsReturn="True"
+                 AcceptsTab="True"
+                 TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto"
+                 FontSize="14"
+                 BorderThickness="0"/>
+    </Grid>
 </Window>
