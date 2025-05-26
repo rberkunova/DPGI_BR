@@ -30,23 +30,23 @@
 
         <Border Grid.Row="0" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10" Margin="5">
             <StackPanel Orientation="Horizontal" Background="{StaticResource LinearPanelBrush}">
-                <Button ToolTip="Відкрити">
-                    <Image Source="images/open.png" Width="40" Height="40"/>
+                <Button ToolTip="Відкрити (Ctrl+O)" Command="local:CustomCommands.Open">
+                    <Image Source="C:\Users\Руслана\Pictures\1.jpg" Width="40" Height="40"/>
                 </Button>
-                <Button ToolTip="Стерти">
-                    <Image Source="images/clear.png" Width="40" Height="40"/>
+                <Button ToolTip="Стерти" Command="local:CustomCommands.Clear">
+                    <Image Source="C:\Users\Руслана\Pictures\2.jpg" Width="40" Height="40"/>
                 </Button>
-                <Button ToolTip="Копіювати">
-                    <Image Source="images/copy.png" Width="40" Height="40"/>
+                <Button ToolTip="Копіювати (Ctrl+C)" Command="ApplicationCommands.Copy" CommandTarget="{Binding ElementName=mainTextBox}">
+                    <Image Source="C:\Users\Руслана\Pictures\3.jpg" Width="40" Height="40"/>
                 </Button>
-                <Button ToolTip="Вставити">
-                    <Image Source="images/paste.png" Width="40" Height="40"/>
+                <Button ToolTip="Вставити (Ctrl+V)" Command="ApplicationCommands.Paste" CommandTarget="{Binding ElementName=mainTextBox}">
+                    <Image Source="C:\Users\Руслана\Pictures\4.jpg" Width="40" Height="40"/>
                 </Button>
             </StackPanel>
         </Border>
 
         <Border Grid.Row="1" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10" Margin="5,0,5,5" Background="{StaticResource LinearPanelBrush}">
-            <TextBox Name="mainTextBox"
+            <TextBox x:Name="mainTextBox"
                      AcceptsReturn="True"
                      AcceptsTab="True"
                      TextWrapping="Wrap"
@@ -57,23 +57,23 @@
         </Border>
 
         <DockPanel Grid.Row="2" Margin="5,0,5,5" LastChildFill="False">
-
             <Button DockPanel.Dock="Right"
                     Content="OK" 
+                    ToolTip="Зберегти (Ctrl+S)"
                     HorizontalAlignment="Right"
                     Padding="25,3,25,3"
                     Margin="0,0,5,0"
-                    Style="{x:Null}"/>
+                    Style="{x:Null}"
+                    Command="local:CustomCommands.Save"/>
 
             <Label Content="Розмір шрифту:" VerticalAlignment="Center"/>
-            <Slider Name="fontSlider"
+            <Slider x:Name="fontSlider"
                     Margin="4"
                     MinWidth="100"
                     Minimum="12"
                     Maximum="72" 
                     Value="14"
                     VerticalAlignment="Center"/>
-
         </DockPanel>
     </Grid>
 </Window>
