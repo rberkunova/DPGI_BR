@@ -46,20 +46,34 @@
         </Border>
 
         <Border Grid.Row="1" BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10" Margin="5,0,5,5" Background="{StaticResource LinearPanelBrush}">
-            <TextBox AcceptsReturn="True"
+            <TextBox Name="mainTextBox"
+                     AcceptsReturn="True"
                      AcceptsTab="True"
                      TextWrapping="Wrap"
                      VerticalScrollBarVisibility="Auto"
-                     FontSize="14"
                      BorderThickness="0"
-                     Margin="15"/>
+                     Margin="15"
+                     FontSize="{Binding ElementName=fontSlider, Path=Value}"/>
         </Border>
 
-        <Button Grid.Row="2"
-                Content="OK" 
-                HorizontalAlignment="Center"
-                Padding="25,3,25,3"
-                Margin="0,5,0,10"
-                Style="{x:Null}"/>
+        <DockPanel Grid.Row="2" Margin="5,0,5,5" LastChildFill="False">
+
+            <Button DockPanel.Dock="Right"
+                    Content="OK" 
+                    HorizontalAlignment="Right"
+                    Padding="25,3,25,3"
+                    Margin="0,0,5,0"
+                    Style="{x:Null}"/>
+
+            <Label Content="Розмір шрифту:" VerticalAlignment="Center"/>
+            <Slider Name="fontSlider"
+                    Margin="4"
+                    MinWidth="100"
+                    Minimum="12"
+                    Maximum="72" 
+                    Value="14"
+                    VerticalAlignment="Center"/>
+
+        </DockPanel>
     </Grid>
 </Window>
